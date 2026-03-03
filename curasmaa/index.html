@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CuraMatch AI — Pflegekräfte-Vermittlung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">💊</span>
+                <span class="logo-text">CuraMatch<span class="logo-ai">AI</span></span>
+            </div>
+            <p class="logo-sub">Demo für Curasmaa</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')">
+                <span class="nav-icon">📊</span> Dashboard
+            </a>
+            <a href="#" class="nav-item" data-page="candidates" onclick="showPage('candidates')">
+                <span class="nav-icon">👤</span> Pflegekräfte
+            </a>
+            <a href="#" class="nav-item" data-page="facilities" onclick="showPage('facilities')">
+                <span class="nav-icon">🏥</span> Einrichtungen
+            </a>
+            <a href="#" class="nav-item" data-page="matching" onclick="showPage('matching')">
+                <span class="nav-icon">🤖</span> AI-Matching
+            </a>
+            <a href="#" class="nav-item" data-page="documents" onclick="showPage('documents')">
+                <span class="nav-icon">📄</span> Dokumente
+            </a>
+            <a href="#" class="nav-item" data-page="messages" onclick="showPage('messages')">
+                <span class="nav-icon">✉️</span> Kommunikation
+            </a>
+            <a href="#" class="nav-item" data-page="analytics" onclick="showPage('analytics')">
+                <span class="nav-icon">📈</span> Analytics
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-badge">
+                <div class="user-avatar">AS</div>
+                <div>
+                    <p class="user-name">Asmaa Scherer</p>
+                    <p class="user-role">Geschäftsführerin</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+        <span class="logo-text">CuraMatch<span class="logo-ai">AI</span></span>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- DASHBOARD -->
+        <div class="page active" id="page-dashboard">
+            <div class="page-header">
+                <div>
+                    <h1>Guten Tag, Asmaa 👋</h1>
+                    <p class="page-subtitle">Hier ist Ihr Überblick für heute</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary" onclick="showPage('matching')">🤖 AI-Match starten</button>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">👤</div>
+                    <div class="stat-info">
+                        <p class="stat-value" id="statCandidates">24</p>
+                        <p class="stat-label">Aktive Pflegekräfte</p>
+                    </div>
+                    <span class="stat-trend up">+3 diese Woche</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">🏥</div>
+                    <div class="stat-info">
+                        <p class="stat-value">12</p>
+                        <p class="stat-label">Einrichtungen</p>
+                    </div>
+                    <span class="stat-trend up">+1 neu</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon purple">🤝</div>
+                    <div class="stat-info">
+                        <p class="stat-value">7</p>
+                        <p class="stat-label">Offene Matches</p>
+                    </div>
+                    <span class="stat-trend neutral">in Bearbeitung</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">📄</div>
+                    <div class="stat-info">
+                        <p class="stat-value">5</p>
+                        <p class="stat-label">Dokumente ausstehend</p>
+                    </div>
+                    <span class="stat-trend down">⚠️ Aktion nötig</span>
+                </div>
+            </div>
+
+            <!-- Pipeline -->
+            <div class="section-card">
+                <h2>Vermittlungs-Pipeline</h2>
+                <div class="pipeline">
+                    <div class="pipeline-stage">
+                        <div class="stage-header">
+                            <span class="stage-dot blue"></span>
+                            <span>Bewerbung</span>
+                            <span class="stage-count">8</span>
+                        </div>
+                        <div class="stage-bar"><div class="stage-fill blue" style="width:100%"></div></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-header">
+                            <span class="stage-dot yellow"></span>
+                            <span>Dokumente prüfen</span>
+                            <span class="stage-count">6</span>
+                        </div>
+                        <div class="stage-bar"><div class="stage-fill yellow" style="width:75%"></div></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-header">
+                            <span class="stage-dot purple"></span>
+                            <span>AI-Matching</span>
+                            <span class="stage-count">5</span>
+                        </div>
+                        <div class="stage-bar"><div class="stage-fill purple" style="width:63%"></div></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-header">
+                            <span class="stage-dot green"></span>
+                            <span>Vorstellung</span>
+                            <span class="stage-count">3</span>
+                        </div>
+                        <div class="stage-bar"><div class="stage-fill green" style="width:38%"></div></div>
+                    </div>
+                    <div class="pipeline-stage">
+                        <div class="stage-header">
+                            <span class="stage-dot emerald"></span>
+                            <span>Vermittelt ✓</span>
+                            <span class="stage-count">2</span>
+                        </div>
+                        <div class="stage-bar"><div class="stage-fill emerald" style="width:25%"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity + Alerts -->
+            <div class="grid-2">
+                <div class="section-card">
+                    <h2>⚠️ Handlungsbedarf</h2>
+                    <div class="alert-list">
+                        <div class="alert-item urgent">
+                            <span class="alert-badge">Dringend</span>
+                            <p><strong>Maria Kowalska</strong> — Sprachzertifikat B2 läuft in 14 Tagen ab</p>
+                            <button class="btn btn-sm" onclick="showPage('documents')">Prüfen →</button>
+                        </div>
+                        <div class="alert-item warning">
+                            <span class="alert-badge warn">Erinnerung</span>
+                            <p><strong>Altenpflegeheim Sonnental</strong> — wartet seit 5 Tagen auf Kandidatenvorschlag</p>
+                            <button class="btn btn-sm" onclick="showPage('matching')">Match finden →</button>
+                        </div>
+                        <div class="alert-item info">
+                            <span class="alert-badge info">Neu</span>
+                            <p><strong>Ana Popescu</strong> — Anerkennung aus Rumänien eingetroffen</p>
+                            <button class="btn btn-sm" onclick="showPage('documents')">Ansehen →</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <h2>📋 Letzte Aktivitäten</h2>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <span class="activity-time">vor 2h</span>
+                            <p>🤖 AI hat <strong>3 neue Matches</strong> für Klinikum Ravensburg gefunden</p>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">vor 4h</span>
+                            <p>📧 Automatische Willkommens-E-Mail an <strong>Dragana Jović</strong> gesendet</p>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">gestern</span>
+                            <p>✅ <strong>Tomasz Nowak</strong> erfolgreich bei Seniorenresidenz Allgäu vermittelt</p>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">gestern</span>
+                            <p>📄 Visum-Status für <strong>Elena Vasile</strong> auf "genehmigt" aktualisiert</p>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">vor 2 Tagen</span>
+                            <p>🏥 Neue Einrichtung <strong>Pflegezentrum Bodensee</strong> registriert</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CANDIDATES -->
+        <div class="page" id="page-candidates">
+            <div class="page-header">
+                <div>
+                    <h1>Pflegekräfte</h1>
+                    <p class="page-subtitle">24 aktive Kandidat:innen</p>
+                </div>
+                <div class="header-actions">
+                    <input type="text" class="search-input" placeholder="🔍 Suchen..." id="candidateSearch" oninput="filterCandidates()">
+                    <button class="btn btn-primary" onclick="openModal('addCandidate')">+ Neue Pflegekraft</button>
+                </div>
+            </div>
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filterByStatus(this, 'all')">Alle (24)</button>
+                <button class="filter-btn" onclick="filterByStatus(this, 'active')">Aktiv (18)</button>
+                <button class="filter-btn" onclick="filterByStatus(this, 'docs')">Dokumente ausstehend (5)</button>
+                <button class="filter-btn" onclick="filterByStatus(this, 'placed')">Vermittelt (6)</button>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table" id="candidateTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Herkunft</th>
+                            <th>Qualifikation</th>
+                            <th>Deutsch</th>
+                            <th>Status</th>
+                            <th>Dokumente</th>
+                            <th>Aktionen</th>
+                        </tr>
+                    </thead>
+                    <tbody id="candidateBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- FACILITIES -->
+        <div class="page" id="page-facilities">
+            <div class="page-header">
+                <div>
+                    <h1>Einrichtungen</h1>
+                    <p class="page-subtitle">12 registrierte Einrichtungen</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary" onclick="openModal('addFacility')">+ Neue Einrichtung</button>
+                </div>
+            </div>
+            <div class="facility-grid" id="facilityGrid"></div>
+        </div>
+
+        <!-- AI MATCHING -->
+        <div class="page" id="page-matching">
+            <div class="page-header">
+                <div>
+                    <h1>🤖 AI-Matching</h1>
+                    <p class="page-subtitle">Intelligente Zuordnung von Pflegekräften zu Einrichtungen</p>
+                </div>
+            </div>
+            <div class="matching-layout">
+                <div class="section-card">
+                    <h2>Einrichtung auswählen</h2>
+                    <select class="select-input" id="matchFacility" onchange="runAIMatch()">
+                        <option value="">— Einrichtung wählen —</option>
+                    </select>
+                    <div id="facilityNeeds" class="facility-needs" style="display:none"></div>
+                </div>
+                <div class="section-card">
+                    <h2>AI-Ergebnisse</h2>
+                    <div id="matchResults" class="match-results">
+                        <div class="empty-state">
+                            <p>🤖</p>
+                            <p>Wählen Sie eine Einrichtung, um das AI-Matching zu starten</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DOCUMENTS -->
+        <div class="page" id="page-documents">
+            <div class="page-header">
+                <div>
+                    <h1>📄 Dokumente</h1>
+                    <p class="page-subtitle">Übersicht aller Dokumente und Fristen</p>
+                </div>
+            </div>
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filterDocs(this, 'all')">Alle</button>
+                <button class="filter-btn" onclick="filterDocs(this, 'expiring')">⚠️ Bald ablaufend</button>
+                <button class="filter-btn" onclick="filterDocs(this, 'missing')">❌ Fehlend</button>
+                <button class="filter-btn" onclick="filterDocs(this, 'valid')">✅ Gültig</button>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Pflegekraft</th>
+                            <th>Dokument</th>
+                            <th>Status</th>
+                            <th>Ablaufdatum</th>
+                            <th>Aktion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="docBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- MESSAGES -->
+        <div class="page" id="page-messages">
+            <div class="page-header">
+                <div>
+                    <h1>✉️ Kommunikation</h1>
+                    <p class="page-subtitle">Automatisierte Nachrichten & Templates</p>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="section-card">
+                    <h2>📨 Automatische E-Mails</h2>
+                    <div class="template-list">
+                        <div class="template-item">
+                            <div class="template-info">
+                                <h3>Willkommen — Neue Pflegekraft</h3>
+                                <p>Wird automatisch gesendet bei Registrierung</p>
+                            </div>
+                            <span class="badge green">Aktiv</span>
+                        </div>
+                        <div class="template-item">
+                            <div class="template-info">
+                                <h3>Dokument-Erinnerung</h3>
+                                <p>14 Tage vor Ablauf automatisch senden</p>
+                            </div>
+                            <span class="badge green">Aktiv</span>
+                        </div>
+                        <div class="template-item">
+                            <div class="template-info">
+                                <h3>Match-Vorschlag an Einrichtung</h3>
+                                <p>Wird gesendet wenn AI ein Match findet</p>
+                            </div>
+                            <span class="badge green">Aktiv</span>
+                        </div>
+                        <div class="template-item">
+                            <div class="template-info">
+                                <h3>Visum-Status Update</h3>
+                                <p>Benachrichtigung bei Statusänderung</p>
+                            </div>
+                            <span class="badge green">Aktiv</span>
+                        </div>
+                        <div class="template-item">
+                            <div class="template-info">
+                                <h3>Vermittlungs-Bestätigung</h3>
+                                <p>An Pflegekraft + Einrichtung bei erfolgreicher Vermittlung</p>
+                            </div>
+                            <span class="badge green">Aktiv</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <h2>📝 Schnellnachricht</h2>
+                    <div class="compose-form">
+                        <label>Empfänger</label>
+                        <select class="select-input" id="msgRecipient">
+                            <option>— Auswählen —</option>
+                            <option>Maria Kowalska</option>
+                            <option>Ana Popescu</option>
+                            <option>Dragana Jović</option>
+                            <option>Altenpflegeheim Sonnental</option>
+                            <option>Klinikum Ravensburg</option>
+                        </select>
+                        <label>Vorlage</label>
+                        <select class="select-input" id="msgTemplate" onchange="loadTemplate()">
+                            <option value="">— Freitext —</option>
+                            <option value="welcome">Willkommen</option>
+                            <option value="docreminder">Dokument-Erinnerung</option>
+                            <option value="match">Match-Vorschlag</option>
+                        </select>
+                        <label>Nachricht</label>
+                        <textarea class="textarea-input" id="msgBody" rows="6" placeholder="Ihre Nachricht..."></textarea>
+                        <div class="compose-actions">
+                            <button class="btn btn-ghost" onclick="generateAIMessage()">🤖 AI-Vorschlag</button>
+                            <button class="btn btn-primary" onclick="sendMessage()">Senden</button>
+                        </div>
+                    </div>
+                    <div class="ai-suggestion" id="aiSuggestion" style="display:none">
+                        <p class="ai-label">🤖 AI-Vorschlag:</p>
+                        <p id="aiSuggestionText"></p>
+                        <button class="btn btn-sm" onclick="useAISuggestion()">Übernehmen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANALYTICS -->
+        <div class="page" id="page-analytics">
+            <div class="page-header">
+                <div>
+                    <h1>📈 Analytics</h1>
+                    <p class="page-subtitle">Leistungskennzahlen Ihrer Vermittlung</p>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon green">✅</div>
+                    <div class="stat-info">
+                        <p class="stat-value">89%</p>
+                        <p class="stat-label">Vermittlungsquote</p>
+                    </div>
+                    <span class="stat-trend up">+12% vs. Vormonat</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blue">⏱️</div>
+                    <div class="stat-info">
+                        <p class="stat-value">18 Tage</p>
+                        <p class="stat-label">Ø Time-to-Place</p>
+                    </div>
+                    <span class="stat-trend up">-5 Tage schneller</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon purple">🤖</div>
+                    <div class="stat-info">
+                        <p class="stat-value">94%</p>
+                        <p class="stat-label">AI-Match Genauigkeit</p>
+                    </div>
+                    <span class="stat-trend neutral">stabil</span>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">💰</div>
+                    <div class="stat-info">
+                        <p class="stat-value">12h/Woche</p>
+                        <p class="stat-label">Zeitersparnis durch AI</p>
+                    </div>
+                    <span class="stat-trend up">+3h vs. Start</span>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="section-card">
+                    <h2>Vermittlungen pro Monat</h2>
+                    <div class="chart-placeholder" id="chartMonthly"></div>
+                </div>
+                <div class="section-card">
+                    <h2>Herkunftsländer</h2>
+                    <div class="chart-placeholder" id="chartCountries"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal" id="modalContent"></div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
