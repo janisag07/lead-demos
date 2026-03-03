@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContentAI — Marketing-Automatisierung</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../curasmaa/style.css">
+    <style>.logo-ai{color:#EC4899}:root{--primary:#EC4899;--primary-hover:#DB2777;--primary-light:#FCE7F3}.nav-item.active{background:rgba(236,72,153,0.15);color:#EC4899}</style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header"><div class="logo"><span class="logo-icon">🚀</span><span class="logo-text">Content<span class="logo-ai">AI</span></span></div><p class="logo-sub">Demo für B2 Agentur für Marketing</p></div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')"><span class="nav-icon">📊</span> Dashboard</a>
+            <a href="#" class="nav-item" data-page="content" onclick="showPage('content')"><span class="nav-icon">✍️</span> Content Generator</a>
+            <a href="#" class="nav-item" data-page="clients" onclick="showPage('clients')"><span class="nav-icon">👥</span> Kunden</a>
+            <a href="#" class="nav-item" data-page="calendar" onclick="showPage('calendar')"><span class="nav-icon">📅</span> Content-Kalender</a>
+            <a href="#" class="nav-item" data-page="campaigns" onclick="showPage('campaigns')"><span class="nav-icon">📢</span> Kampagnen</a>
+            <a href="#" class="nav-item" data-page="analytics" onclick="showPage('analytics')"><span class="nav-icon">📈</span> Analytics</a>
+        </nav>
+        <div class="sidebar-footer"><div class="user-badge"><div class="user-avatar" style="background:#EC4899">SB</div><div><p class="user-name">Sebastian Batzill</p><p class="user-role">Inhaber &amp; Geschäftsführer</p></div></div></div>
+    </aside>
+    <header class="mobile-header"><button class="menu-toggle" onclick="toggleSidebar()">☰</button><span class="logo-text">Content<span class="logo-ai">AI</span></span></header>
+    <main class="main">
+        <div class="page active" id="page-dashboard">
+            <div class="page-header"><div><h1>Guten Tag, Sebastian 👋</h1><p class="page-subtitle">Ihr Marketing-Cockpit für heute</p></div><div class="header-actions"><button class="btn btn-primary" onclick="showPage('content')">✍️ Content erstellen</button></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon blue">👥</div><div class="stat-info"><p class="stat-value">14</p><p class="stat-label">Aktive Kunden</p></div><span class="stat-trend up">+2 diesen Monat</span></div>
+                <div class="stat-card"><div class="stat-icon green">📝</div><div class="stat-info"><p class="stat-value">47</p><p class="stat-label">Posts diese Woche</p></div><span class="stat-trend up">AI-generiert</span></div>
+                <div class="stat-card"><div class="stat-icon purple">📢</div><div class="stat-info"><p class="stat-value">6</p><p class="stat-label">Aktive Kampagnen</p></div><span class="stat-trend neutral">läuft</span></div>
+                <div class="stat-card"><div class="stat-icon orange">⏱️</div><div class="stat-info"><p class="stat-value">18h</p><p class="stat-label">Zeit gespart/Woche</p></div><span class="stat-trend up">durch AI</span></div>
+            </div>
+            <div class="grid-2">
+                <div class="section-card">
+                    <h2>⚠️ Heute zu erledigen</h2>
+                    <div class="alert-list">
+                        <div class="alert-item urgent"><span class="alert-badge">Dringend</span><p><strong>Müller Zahntechnik</strong> — Instagram-Posts für morgen noch nicht freigegeben</p><button class="btn btn-sm">Freigeben →</button></div>
+                        <div class="alert-item warning"><span class="alert-badge warn">Heute</span><p><strong>Café Rosengarten</strong> — Google Ads Budget aufgebraucht, Kampagne pausiert</p><button class="btn btn-sm">Prüfen →</button></div>
+                        <div class="alert-item info"><span class="alert-badge info">Vorschlag</span><p>🤖 AI hat <strong>12 Content-Ideen</strong> für nächste Woche generiert</p><button class="btn btn-sm" onclick="showPage('content')">Ansehen →</button></div>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <h2>📋 Content-Pipeline</h2>
+                    <div class="pipeline">
+                        <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot blue"></span><span>AI-Entwurf</span><span class="stage-count">12</span></div><div class="stage-bar"><div class="stage-fill blue" style="width:100%"></div></div></div>
+                        <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot yellow"></span><span>Zur Freigabe</span><span class="stage-count">8</span></div><div class="stage-bar"><div class="stage-fill yellow" style="width:67%"></div></div></div>
+                        <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot green"></span><span>Freigegeben</span><span class="stage-count">15</span></div><div class="stage-bar"><div class="stage-fill green" style="width:50%"></div></div></div>
+                        <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot emerald"></span><span>Veröffentlicht ✓</span><span class="stage-count">47</span></div><div class="stage-bar"><div class="stage-fill emerald" style="width:100%"></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CONTENT GENERATOR -->
+        <div class="page" id="page-content">
+            <div class="page-header"><div><h1>✍️ AI Content Generator</h1><p class="page-subtitle">Erstellen Sie Social Media Posts, Ads und Texte in Sekunden</p></div></div>
+            <div class="grid-2">
+                <div class="section-card">
+                    <h2>Content erstellen</h2>
+                    <div class="compose-form">
+                        <label>Kunde</label>
+                        <select class="select-input" id="contentClient"><option>Müller Zahntechnik</option><option>Café Rosengarten</option><option>Autohaus Weber</option><option>Yoga Studio Sonnenschein</option><option>Bäckerei Goldkruste</option></select>
+                        <label>Plattform</label>
+                        <select class="select-input" id="contentPlatform"><option>Instagram Post</option><option>Instagram Story</option><option>Facebook Post</option><option>Google Ads</option><option>LinkedIn Post</option><option>Newsletter</option></select>
+                        <label>Thema / Briefing</label>
+                        <textarea class="textarea-input" rows="3" id="contentBrief" placeholder="z.B. Frühlings-Angebot, neues Produkt, Event..."></textarea>
+                        <label>Tonalität</label>
+                        <select class="select-input"><option>Professionell & freundlich</option><option>Jung & trendy</option><option>Seriös & vertrauensvoll</option><option>Locker & witzig</option></select>
+                        <button class="btn btn-primary btn-full" onclick="generateContent()">🤖 AI Content generieren</button>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <h2>AI-Ergebnis</h2>
+                    <div id="contentResult"><div class="empty-state"><p>✍️</p><p>Füllen Sie das Formular aus und lassen Sie die AI arbeiten</p></div></div>
+                </div>
+            </div>
+        </div>
+        <!-- CLIENTS -->
+        <div class="page" id="page-clients">
+            <div class="page-header"><div><h1>👥 Kunden</h1><p class="page-subtitle">14 aktive Kunden</p></div><div class="header-actions"><button class="btn btn-primary">+ Neuer Kunde</button></div></div>
+            <div class="facility-grid" id="clientGrid"></div>
+        </div>
+        <!-- CALENDAR -->
+        <div class="page" id="page-calendar">
+            <div class="page-header"><div><h1>📅 Content-Kalender</h1><p class="page-subtitle">Geplante Veröffentlichungen</p></div></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Datum</th><th>Kunde</th><th>Plattform</th><th>Content</th><th>Status</th><th>Aktion</th></tr></thead><tbody id="calendarBody"></tbody></table></div>
+        </div>
+        <!-- CAMPAIGNS -->
+        <div class="page" id="page-campaigns">
+            <div class="page-header"><div><h1>📢 Kampagnen</h1><p class="page-subtitle">Laufende & geplante Kampagnen</p></div></div>
+            <div class="facility-grid" id="campaignGrid"></div>
+        </div>
+        <!-- ANALYTICS -->
+        <div class="page" id="page-analytics">
+            <div class="page-header"><div><h1>📈 Analytics</h1><p class="page-subtitle">Performance über alle Kunden</p></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon green">👁️</div><div class="stat-info"><p class="stat-value">284K</p><p class="stat-label">Impressions (Monat)</p></div><span class="stat-trend up">+23%</span></div>
+                <div class="stat-card"><div class="stat-icon blue">💬</div><div class="stat-info"><p class="stat-value">4.2%</p><p class="stat-label">Ø Engagement Rate</p></div><span class="stat-trend up">+0.8%</span></div>
+                <div class="stat-card"><div class="stat-icon purple">🎯</div><div class="stat-info"><p class="stat-value">€2.40</p><p class="stat-label">Ø CPC Google Ads</p></div><span class="stat-trend up">-€0.60</span></div>
+                <div class="stat-card"><div class="stat-icon orange">📝</div><div class="stat-info"><p class="stat-value">189</p><p class="stat-label">AI-Posts diesen Monat</p></div><span class="stat-trend up">vs. 45 manuell</span></div>
+            </div>
+        </div>
+    </main>
+    <div class="toast" id="toast"></div>
+    <script>
+    function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelector('[data-page="'+p+'"]')?.classList.add('active');document.getElementById('sidebar').classList.remove('open');if(p==='clients')renderClients();if(p==='calendar')renderCalendar();if(p==='campaigns')renderCampaigns();window.scrollTo(0,0);}
+    function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
+    function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+    const CLIENTS=[
+        {name:"Müller Zahntechnik",type:"Zahnarztpraxis",posts:12,platforms:["Instagram","Google Ads"],budget:"€800/Mo",status:"aktiv"},
+        {name:"Café Rosengarten",type:"Gastronomie",posts:16,platforms:["Instagram","Facebook"],budget:"€500/Mo",status:"aktiv"},
+        {name:"Autohaus Weber",type:"Automotive",posts:8,platforms:["Facebook","Google Ads","LinkedIn"],budget:"€1.200/Mo",status:"aktiv"},
+        {name:"Yoga Studio Sonnenschein",type:"Fitness & Wellness",posts:20,platforms:["Instagram","Facebook"],budget:"€400/Mo",status:"aktiv"},
+        {name:"Bäckerei Goldkruste",type:"Gastronomie",posts:10,platforms:["Instagram","Facebook"],budget:"€300/Mo",status:"aktiv"},
+        {name:"Rechtsanwalt Schneider",type:"Kanzlei",posts:4,platforms:["LinkedIn","Google Ads"],budget:"€600/Mo",status:"aktiv"},
+    ];
+    function renderClients(){
+        document.getElementById('clientGrid').innerHTML=CLIENTS.map(c=>`<div class="facility-card"><div class="facility-header"><h3>${c.name}</h3><span class="badge green">${c.status}</span></div><p class="facility-type">${c.type}</p><div class="facility-stats"><div><strong>${c.posts}</strong><span>Posts/Monat</span></div><div><strong>${c.budget}</strong><span>Budget</span></div></div><div class="facility-needs"><p><strong>Plattformen:</strong></p>${c.platforms.map(p=>`<span class="need-tag">${p}</span>`).join('')}</div><button class="btn btn-primary btn-full" onclick="showPage('content')">✍️ Content erstellen</button></div>`).join('');
+    }
+    const CALENDAR=[
+        {date:"Mo 04.03.",client:"Müller Zahntechnik",platform:"Instagram",content:"Frühlings-Angebot: Professionelle Zahnreinigung -20%",status:'<span class="badge yellow">Freigabe</span>'},
+        {date:"Mo 04.03.",client:"Café Rosengarten",platform:"Instagram",content:"Neues Matcha-Latte Rezept mit Bild",status:'<span class="badge green">Geplant ✓</span>'},
+        {date:"Di 05.03.",client:"Autohaus Weber",platform:"Facebook",content:"Gebrauchtwagen der Woche: VW Golf 8",status:'<span class="badge green">Geplant ✓</span>'},
+        {date:"Di 05.03.",client:"Yoga Studio",platform:"Instagram",content:"5 Yoga-Übungen für den Büroalltag (Carousel)",status:'<span class="badge blue">AI-Entwurf</span>'},
+        {date:"Mi 06.03.",client:"Bäckerei Goldkruste",platform:"Instagram",content:"Behind the Scenes: So entsteht unser Sauerteigbrot",status:'<span class="badge blue">AI-Entwurf</span>'},
+        {date:"Mi 06.03.",client:"RA Schneider",platform:"LinkedIn",content:"Artikel: 5 häufige Fehler bei Mietverträgen",status:'<span class="badge blue">AI-Entwurf</span>'},
+        {date:"Do 07.03.",client:"Müller Zahntechnik",platform:"Google Ads",content:"Zahnarzt Schwetzingen — Neupatienten-Kampagne",status:'<span class="badge green">Geplant ✓</span>'},
+        {date:"Fr 08.03.",client:"Café Rosengarten",platform:"Facebook",content:"Weltfrauentag Special: Gratis Kaffee für alle Frauen",status:'<span class="badge yellow">Freigabe</span>'},
+    ];
+    function renderCalendar(){
+        document.getElementById('calendarBody').innerHTML=CALENDAR.map(c=>`<tr><td><strong>${c.date}</strong></td><td>${c.client}</td><td><span class="need-tag">${c.platform}</span></td><td>${c.content}</td><td>${c.status}</td><td><button class="btn btn-sm" onclick="toast('Bearbeitung geöffnet')">Bearbeiten</button></td></tr>`).join('');
+    }
+    const CAMPAIGNS=[
+        {name:"Frühlings-Kampagne",client:"Müller Zahntechnik",type:"Google Ads",budget:"€400",spent:"€280",clicks:245,cpc:"€1.14",status:"aktiv",urgency:"hoch"},
+        {name:"Neueröffnung Terrasse",client:"Café Rosengarten",type:"Instagram + Facebook",budget:"€200",spent:"€180",clicks:890,cpc:"€0.20",status:"aktiv",urgency:"mittel"},
+        {name:"Gebrauchtwagen März",client:"Autohaus Weber",type:"Facebook Ads",budget:"€600",spent:"€320",clicks:156,cpc:"€2.05",status:"aktiv",urgency:"mittel"},
+    ];
+    function renderCampaigns(){
+        document.getElementById('campaignGrid').innerHTML=CAMPAIGNS.map(c=>`<div class="facility-card"><div class="facility-header"><h3>${c.name}</h3><span class="badge ${c.urgency==='hoch'?'red':'yellow'}">${c.status}</span></div><p class="facility-type">${c.client} • ${c.type}</p><div class="facility-stats"><div><strong>${c.budget}</strong><span>Budget</span></div><div><strong>${c.spent}</strong><span>Ausgegeben</span></div><div><strong>${c.clicks}</strong><span>Klicks</span></div><div><strong>${c.cpc}</strong><span>CPC</span></div></div></div>`).join('');
+    }
+    function generateContent(){
+        const client=document.getElementById('contentClient').value;
+        const platform=document.getElementById('contentPlatform').value;
+        const brief=document.getElementById('contentBrief').value||'Frühlings-Angebot';
+        const r=document.getElementById('contentResult');
+        r.innerHTML='<div class="ai-loading"><div class="spinner"></div><p>🤖 AI generiert '+platform+' für '+client+'...</p></div>';
+        setTimeout(()=>{
+            r.innerHTML=`<div class="match-card top-match"><div class="top-match-label">🤖 AI-generierter Content</div><h3>${platform} — ${client}</h3><div style="background:var(--bg);padding:16px;border-radius:8px;margin:12px 0"><p style="font-size:0.95rem;line-height:1.6">☀️ Frühling liegt in der Luft — und Ihr Lächeln verdient es zu strahlen! ✨\n\nNur diesen Monat: <strong>20% auf professionelle Zahnreinigung</strong> bei ${client}.\n\n✅ Schonende Behandlung\n✅ Modernste Technik\n✅ Termin in 24h verfügbar\n\n📞 Jetzt Termin sichern — Link in Bio!\n\n#zahnpflege #${client.replace(/\s/g,'')} #würzburg #frühling #gesundlächeln</p></div><div class="match-details"><span>📊 Geschätzte Reichweite: 2.400</span><span>💬 Erwartetes Engagement: 4.8%</span></div><div class="match-actions"><button class="btn btn-primary btn-sm" onclick="toast('✅ Content freigegeben & geplant!')">Freigeben & Planen</button><button class="btn btn-ghost btn-sm" onclick="toast('✏️ Zur Bearbeitung geöffnet')">Bearbeiten</button><button class="btn btn-ghost btn-sm" onclick="generateContent()">🔄 Neu generieren</button></div></div>`;
+        },2000);
+    }
+    </script>
+</body>
+</html>
