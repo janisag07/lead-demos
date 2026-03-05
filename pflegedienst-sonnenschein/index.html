@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SonnenAI — Intelligenter Pflegedienst</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../curasmaa/style.css">
+    <style>.logo-ai{color:#F97316}:root{--primary:#F97316;--primary-hover:#EA580C;--primary-light:#FFF7ED}.nav-item.active{background:rgba(249,115,22,0.15);color:#EA580C}.score-ring{background:conic-gradient(#F97316 calc(var(--score)*1%),var(--border) 0)}.score-ring span{color:#EA580C}</style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header"><div class="logo"><span class="logo-icon">☀️</span><span class="logo-text">Sonnen<span class="logo-ai">AI</span></span></div><p class="logo-sub">Demo für Pflegedienst Sonnenschein</p></div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')"><span class="nav-icon">📊</span> Dashboard</a>
+            <a href="#" class="nav-item" data-page="patients" onclick="showPage('patients')"><span class="nav-icon">👤</span> Patienten</a>
+            <a href="#" class="nav-item" data-page="schedule" onclick="showPage('schedule')"><span class="nav-icon">📅</span> Dienstplan</a>
+            <a href="#" class="nav-item" data-page="tours" onclick="showPage('tours')"><span class="nav-icon">🗺️</span> Touren</a>
+            <a href="#" class="nav-item" data-page="docs" onclick="showPage('docs')"><span class="nav-icon">📋</span> Dokumentation</a>
+            <a href="#" class="nav-item" data-page="family" onclick="showPage('family')"><span class="nav-icon">👨‍👩‍👧</span> Angehörigen-Portal</a>
+            <a href="#" class="nav-item" data-page="analytics" onclick="showPage('analytics')"><span class="nav-icon">📈</span> Analytics</a>
+        </nav>
+        <div class="sidebar-footer"><div class="user-badge"><div class="user-avatar" style="background:#F97316">RM</div><div><p class="user-name">Reinhard Müller</p><p class="user-role">Geschäftsführer</p></div></div></div>
+    </aside>
+    <header class="mobile-header"><button class="menu-toggle" onclick="toggleSidebar()">☰</button><span class="logo-text">Sonnen<span class="logo-ai">AI</span></span></header>
+    <main class="main">
+        <div class="page active" id="page-dashboard">
+            <div class="page-header"><div><h1>Guten Tag, Reinhard 👋</h1><p class="page-subtitle">Ihr Pflege-Überblick für heute</p></div><div class="header-actions"><button class="btn btn-primary" onclick="showPage('tours')">🗺️ Touren ansehen</button></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon blue">👤</div><div class="stat-info"><p class="stat-value">78</p><p class="stat-label">Aktive Patienten</p></div><span class="stat-trend up">+3 diese Woche</span></div>
+                <div class="stat-card"><div class="stat-icon green">👩‍⚕️</div><div class="stat-info"><p class="stat-value">24</p><p class="stat-label">Pflegekräfte im Dienst</p></div><span class="stat-trend neutral">von 28 gesamt</span></div>
+                <div class="stat-card"><div class="stat-icon purple">🗺️</div><div class="stat-info"><p class="stat-value">12</p><p class="stat-label">Touren heute</p></div><span class="stat-trend up">AI-optimiert</span></div>
+                <div class="stat-card"><div class="stat-icon orange">📋</div><div class="stat-info"><p class="stat-value">8</p><p class="stat-label">Offene Dokumentationen</p></div><span class="stat-trend down">bis heute Abend</span></div>
+            </div>
+            <div class="section-card">
+                <h2>Patienten-Pipeline</h2>
+                <div class="pipeline">
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot blue"></span><span>Erstgespräch</span><span class="stage-count">5</span></div><div class="stage-bar"><div class="stage-fill blue" style="width:100%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot yellow"></span><span>Pflegegrad-Antrag</span><span class="stage-count">3</span></div><div class="stage-bar"><div class="stage-fill yellow" style="width:60%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot purple"></span><span>Versorgungsplanung</span><span class="stage-count">4</span></div><div class="stage-bar"><div class="stage-fill purple" style="width:80%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot green"></span><span>Versorgung aktiv</span><span class="stage-count">78</span></div><div class="stage-bar"><div class="stage-fill green" style="width:100%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot emerald"></span><span>Nachkontrolle</span><span class="stage-count">6</span></div><div class="stage-bar"><div class="stage-fill emerald" style="width:12%"></div></div></div>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="section-card">
+                    <h2>⚠️ Handlungsbedarf</h2>
+                    <div class="alert-list">
+                        <div class="alert-item urgent"><span class="alert-badge">Dringend</span><p><strong>Pflegekraft krank</strong> — Sarah Müller (Tour 3) fällt aus — AI sucht Vertretung</p><button class="btn btn-sm" onclick="showPage('schedule')">Dienstplan →</button></div>
+                        <div class="alert-item warning"><span class="alert-badge warn">Medikament</span><p><strong>Herr Bauer</strong> — Insulin-Vorrat reicht nur noch 2 Tage</p><button class="btn btn-sm" onclick="toast('Rezeptanforderung gesendet')">Rezept →</button></div>
+                        <div class="alert-item info"><span class="alert-badge info">AI</span><p>🤖 <strong>3 Pflegepläne</strong> aktualisiert — Kontrolle empfohlen</p><button class="btn btn-sm" onclick="showPage('docs')">Prüfen →</button></div>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <h2>📋 Letzte Aktivitäten</h2>
+                    <div class="activity-list">
+                        <div class="activity-item"><span class="activity-time">vor 15min</span><p>🤖 AI hat <strong>Touren für morgen</strong> optimiert — 45min Fahrzeit eingespart</p></div>
+                        <div class="activity-item"><span class="activity-time">vor 1h</span><p>📋 <strong>Pflegebericht</strong> für Frau Weber automatisch erstellt</p></div>
+                        <div class="activity-item"><span class="activity-time">vor 2h</span><p>👨‍👩‍👧 Automatische Nachricht an <strong>Familie Hoffmann</strong> (Zustandsupdate Vater)</p></div>
+                        <div class="activity-item"><span class="activity-time">gestern</span><p>✅ <strong>MDK-Prüfung</strong> bestanden — Note 1,3 🎉</p></div>
+                        <div class="activity-item"><span class="activity-time">vor 2 Tagen</span><p>📄 <strong>Pflegegrad-Höherstufung</strong> für Herrn Schmidt genehmigt (3→4)</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PATIENTS -->
+        <div class="page" id="page-patients">
+            <div class="page-header"><div><h1>👤 Patienten</h1><p class="page-subtitle">78 aktive Patienten</p></div><div class="header-actions"><input type="text" class="search-input" placeholder="🔍 Name, Adresse..."><button class="btn btn-primary">+ Neuer Patient</button></div></div>
+            <div class="filter-bar"><button class="filter-btn active">Alle (78)</button><button class="filter-btn">Pflegegrad 1-2 (28)</button><button class="filter-btn">Pflegegrad 3 (32)</button><button class="filter-btn">Pflegegrad 4-5 (18)</button></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Name</th><th>Adresse</th><th>Pflegegrad</th><th>Einsätze/Woche</th><th>Status</th><th>Aktion</th></tr></thead><tbody id="patientBody"></tbody></table></div>
+        </div>
+        <!-- SCHEDULE -->
+        <div class="page" id="page-schedule">
+            <div class="page-header"><div><h1>📅 Dienstplan</h1><p class="page-subtitle">Diese Woche</p></div><div class="header-actions"><button class="btn btn-primary" onclick="toast('🤖 AI optimiert Dienstplan...')">🤖 AI-Optimierung</button></div></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Pflegekraft</th><th>Mo</th><th>Di</th><th>Mi</th><th>Do</th><th>Fr</th><th>Sa</th><th>So</th></tr></thead><tbody id="scheduleBody"></tbody></table></div>
+        </div>
+        <!-- TOURS -->
+        <div class="page" id="page-tours">
+            <div class="page-header"><div><h1>🗺️ Touren heute</h1><p class="page-subtitle">12 Touren, 78 Einsätze — AI-optimierte Routenplanung</p></div></div>
+            <div class="facility-grid" id="tourGrid"></div>
+        </div>
+        <!-- DOCS -->
+        <div class="page" id="page-docs">
+            <div class="page-header"><div><h1>📋 Pflegedokumentation</h1><p class="page-subtitle">AI-gestützte Dokumentation</p></div><div class="header-actions"><button class="btn btn-primary" onclick="toast('🤖 AI erstellt Pflegebericht...')">🤖 AI-Bericht erstellen</button></div></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Patient</th><th>Letzte Doku</th><th>Typ</th><th>AI-Status</th><th>Aktion</th></tr></thead><tbody id="docsBody"></tbody></table></div>
+        </div>
+        <!-- FAMILY PORTAL -->
+        <div class="page" id="page-family">
+            <div class="page-header"><div><h1>👨‍👩‍👧 Angehörigen-Portal</h1><p class="page-subtitle">Automatische Updates für Familien</p></div></div>
+            <div class="grid-2">
+                <div class="section-card"><h2>📨 Automatische Nachrichten</h2><div class="template-list">
+                    <div class="template-item"><div class="template-info"><h3>Tägliches Zustandsupdate</h3><p>Kurzbericht nach jedem Einsatz</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Medikamenten-Info</h3><p>Bei Änderungen sofort informieren</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Arzttermin-Erinnerung</h3><p>2 Tage vorher an Angehörige</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Monatlicher Pflegebericht</h3><p>Zusammenfassung für Angehörige</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Notfall-Benachrichtigung</h3><p>Sofortige Info bei Zwischenfällen</p></div><span class="badge green">Aktiv</span></div>
+                </div></div>
+                <div class="section-card"><h2>📝 Nachricht an Angehörige</h2><div class="compose-form"><label>Patient / Angehörige</label><select class="select-input"><option>— Auswählen —</option><option>Familie Weber (Frau Weber, PG3)</option><option>Sohn Hoffmann (Herr Hoffmann, PG4)</option><option>Tochter Bauer (Herr Bauer, PG3)</option></select><label>Nachricht</label><textarea class="textarea-input" rows="6" placeholder="Ihre Nachricht..."></textarea><div class="compose-actions"><button class="btn btn-ghost" onclick="toast('🤖 AI-Vorschlag generiert!')">🤖 AI-Vorschlag</button><button class="btn btn-primary" onclick="toast('📧 Gesendet!')">Senden</button></div></div></div>
+            </div>
+        </div>
+        <!-- ANALYTICS -->
+        <div class="page" id="page-analytics">
+            <div class="page-header"><div><h1>📈 Analytics</h1><p class="page-subtitle">Pflege-Kennzahlen</p></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon green">⭐</div><div class="stat-info"><p class="stat-value">1,3</p><p class="stat-label">MDK-Prüfnote</p></div><span class="stat-trend up">Sehr gut</span></div>
+                <div class="stat-card"><div class="stat-icon blue">🗺️</div><div class="stat-info"><p class="stat-value">-35%</p><p class="stat-label">Fahrzeit reduziert</p></div><span class="stat-trend up">durch AI-Routen</span></div>
+                <div class="stat-card"><div class="stat-icon purple">🤖</div><div class="stat-info"><p class="stat-value">12h/Wo</p><p class="stat-label">Doku-Zeitersparnis</p></div><span class="stat-trend up">durch AI</span></div>
+                <div class="stat-card"><div class="stat-icon orange">👨‍👩‍👧</div><div class="stat-info"><p class="stat-value">96%</p><p class="stat-label">Angehörigen-Zufriedenheit</p></div><span class="stat-trend up">+12% seit AI</span></div>
+            </div>
+        </div>
+    </main>
+    <div class="toast" id="toast"></div>
+    <script>
+    function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelector('[data-page="'+p+'"]')?.classList.add('active');document.getElementById('sidebar').classList.remove('open');if(p==='patients')renderPatients();if(p==='schedule')renderSchedule();if(p==='tours')renderTours();if(p==='docs')renderDocs();window.scrollTo(0,0);}
+    function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
+    function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+    const PATIENTS=[
+        {name:"Frau Weber",addr:"Fürther Str. 14",pg:"PG 3",visits:"7x/Woche",status:'<span class="badge green">Stabil</span>'},
+        {name:"Herr Hoffmann",addr:"Bucher Str. 8",pg:"PG 4",visits:"14x/Woche",status:'<span class="badge yellow">Beobachtung</span>'},
+        {name:"Herr Bauer",addr:"Schweinauer Str. 22",pg:"PG 3",visits:"5x/Woche",status:'<span class="badge green">Stabil</span>'},
+        {name:"Frau Schmidt",addr:"Gibitzenhofstr. 45",pg:"PG 2",visits:"3x/Woche",status:'<span class="badge green">Stabil</span>'},
+        {name:"Herr Petrov",addr:"Muggenhofer Str. 12",pg:"PG 5",visits:"21x/Woche",status:'<span class="badge red">Intensiv</span>'},
+        {name:"Frau Kaya",addr:"Pirckheimerstr. 3",pg:"PG 2",visits:"3x/Woche",status:'<span class="badge green">Stabil</span>'},
+        {name:"Herr Dr. Maier",addr:"Laufamholzstr. 67",pg:"PG 3",visits:"7x/Woche",status:'<span class="badge green">Stabil</span>'},
+        {name:"Frau Lehmann",addr:"Wöhrder Hauptstr. 9",pg:"PG 4",visits:"10x/Woche",status:'<span class="badge yellow">Beobachtung</span>'},
+    ];
+    const STAFF=[
+        {name:"Anna Berger",mo:"F",di:"F",mi:"S",don:"F",fr:"F",sa:"-",so:"-"},
+        {name:"Sarah Müller",mo:"F",di:"F",mi:"F",don:"<span style='color:red'>⚠️ krank</span>",fr:"?",sa:"-",so:"-"},
+        {name:"Thomas Kern",mo:"S",di:"S",mi:"F",don:"F",fr:"S",sa:"F",so:"-"},
+        {name:"Elena Popov",mo:"F",di:"-",mi:"F",don:"F",fr:"-",sa:"F",so:"F"},
+        {name:"Fatima Al-Said",mo:"F",di:"F",mi:"-",don:"-",fr:"F",sa:"F",so:"F"},
+        {name:"Lisa Wagner",mo:"-",di:"F",mi:"F",don:"F",fr:"F",sa:"-",so:"-"},
+    ];
+    const TOURS=[
+        {name:"Tour 1 — Südstadt",nurse:"Anna Berger",patients:7,start:"6:30",end:"12:00",km:"18 km",status:"green"},
+        {name:"Tour 2 — Langwasser",nurse:"Thomas Kern",patients:6,start:"7:00",end:"12:30",km:"22 km",status:"green"},
+        {name:"Tour 3 — Mögeldorf",nurse:"Sarah Müller",patients:8,start:"6:30",end:"13:00",km:"15 km",status:"red"},
+        {name:"Tour 4 — Röthenbach",nurse:"Elena Popov",patients:5,start:"7:00",end:"11:30",km:"12 km",status:"green"},
+        {name:"Tour 5 — Gostenhof",nurse:"Fatima Al-Said",patients:7,start:"6:30",end:"12:00",km:"20 km",status:"green"},
+        {name:"Tour 6 — Abend",nurse:"Lisa Wagner",patients:6,start:"16:00",end:"20:30",km:"16 km",status:"green"},
+    ];
+    const DOCS=[
+        {patient:"Frau Weber",date:"Heute 09:15",type:"Pflegebericht",ai:'<span class="badge green">✅ AI-erstellt</span>'},
+        {patient:"Herr Hoffmann",date:"Heute 08:30",type:"Vitalwerte",ai:'<span class="badge green">✅ AI-geprüft</span>'},
+        {patient:"Herr Petrov",date:"Gestern",type:"Wunddokumentation",ai:'<span class="badge yellow">⏳ Ergänzung nötig</span>'},
+        {patient:"Frau Schmidt",date:"Gestern",type:"Pflegebericht",ai:'<span class="badge green">✅ AI-erstellt</span>'},
+        {patient:"Herr Bauer",date:"Vor 2 Tagen",type:"Medikamentenplan",ai:'<span class="badge red">⚠️ Update nötig</span>'},
+        {patient:"Frau Kaya",date:"Vor 2 Tagen",type:"Pflegebericht",ai:'<span class="badge green">✅ AI-erstellt</span>'},
+    ];
+    function renderPatients(){document.getElementById('patientBody').innerHTML=PATIENTS.map(p=>`<tr><td><strong>${p.name}</strong></td><td>${p.addr}</td><td><span class="badge blue">${p.pg}</span></td><td>${p.visits}</td><td>${p.status}</td><td><button class="btn btn-sm" onclick="toast('Patientenakte geöffnet')">Akte</button></td></tr>`).join('');}
+    function renderSchedule(){document.getElementById('scheduleBody').innerHTML=STAFF.map(s=>`<tr><td><strong>${s.name}</strong></td><td>${s.mo}</td><td>${s.di}</td><td>${s.mi}</td><td>${s.don}</td><td>${s.fr}</td><td>${s.sa}</td><td>${s.so}</td></tr>`).join('');document.getElementById('scheduleBody').innerHTML+='<tr><td colspan="8" style="text-align:center;color:var(--text-secondary)"><em>F = Frühdienst, S = Spätdienst, - = Frei</em></td></tr>';}
+    function renderTours(){document.getElementById('tourGrid').innerHTML=TOURS.map(t=>`<div class="facility-card"><div class="facility-header"><h3>${t.name}</h3><span class="badge ${t.status}">${t.status==='red'?'⚠️ Vertretung nötig':'✅ Besetzt'}</span></div><p class="facility-type">👩‍⚕️ ${t.nurse}</p><div class="facility-stats"><div><strong>${t.patients}</strong><span>Patienten</span></div><div><strong>${t.start}-${t.end}</strong><span>Zeit</span></div><div><strong>${t.km}</strong><span>Strecke</span></div></div><button class="btn btn-primary btn-full" onclick="toast('Tourendetails geöffnet')">Route anzeigen</button></div>`).join('');}
+    function renderDocs(){document.getElementById('docsBody').innerHTML=DOCS.map(d=>`<tr><td><strong>${d.patient}</strong></td><td>${d.date}</td><td>${d.type}</td><td>${d.ai}</td><td><button class="btn btn-sm" onclick="toast('Dokument geöffnet')">Öffnen</button></td></tr>`).join('');}
+    renderTours();
+    </script>
+</body>
+</html>

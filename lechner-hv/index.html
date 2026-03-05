@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LechnerAI — Intelligente Hausverwaltung</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../curasmaa/style.css">
+    <style>.logo-ai{color:#F59E0B}:root{--primary:#F59E0B;--primary-hover:#D97706;--primary-light:#FEF3C7}.nav-item.active{background:rgba(245,158,11,0.15);color:#D97706}.score-ring{background:conic-gradient(#F59E0B calc(var(--score)*1%),var(--border) 0)}.score-ring span{color:#D97706}</style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header"><div class="logo"><span class="logo-icon">🏢</span><span class="logo-text">Lechner<span class="logo-ai">AI</span></span></div><p class="logo-sub">Demo für Lechner Hausverwaltung GmbH</p></div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')"><span class="nav-icon">📊</span> Dashboard</a>
+            <a href="#" class="nav-item" data-page="objects" onclick="showPage('objects')"><span class="nav-icon">🏠</span> Objekte</a>
+            <a href="#" class="nav-item" data-page="tenants" onclick="showPage('tenants')"><span class="nav-icon">👤</span> Mieter</a>
+            <a href="#" class="nav-item" data-page="tickets" onclick="showPage('tickets')"><span class="nav-icon">🔧</span> Tickets</a>
+            <a href="#" class="nav-item" data-page="finance" onclick="showPage('finance')"><span class="nav-icon">💰</span> Nebenkostenabrechnung</a>
+            <a href="#" class="nav-item" data-page="messages" onclick="showPage('messages')"><span class="nav-icon">✉️</span> Kommunikation</a>
+            <a href="#" class="nav-item" data-page="analytics" onclick="showPage('analytics')"><span class="nav-icon">📈</span> Analytics</a>
+        </nav>
+        <div class="sidebar-footer"><div class="user-badge"><div class="user-avatar" style="background:#F59E0B">DS</div><div><p class="user-name">Daniel Schön</p><p class="user-role">Geschäftsführer</p></div></div></div>
+    </aside>
+    <header class="mobile-header"><button class="menu-toggle" onclick="toggleSidebar()">☰</button><span class="logo-text">Lechner<span class="logo-ai">AI</span></span></header>
+    <main class="main">
+        <div class="page active" id="page-dashboard">
+            <div class="page-header"><div><h1>Guten Tag, Daniel 👋</h1><p class="page-subtitle">Ihr Verwaltungs-Überblick für heute</p></div><div class="header-actions"><button class="btn btn-primary" onclick="showPage('tickets')">🔧 Offene Tickets</button></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon blue">🏠</div><div class="stat-info"><p class="stat-value">186</p><p class="stat-label">Verwaltete Einheiten</p></div><span class="stat-trend up">+8 diesen Monat</span></div>
+                <div class="stat-card"><div class="stat-icon green">💰</div><div class="stat-info"><p class="stat-value">€94.200</p><p class="stat-label">Mieteinnahmen (Monat)</p></div><span class="stat-trend up">99,2% Eingangsquote</span></div>
+                <div class="stat-card"><div class="stat-icon purple">🔧</div><div class="stat-info"><p class="stat-value">14</p><p class="stat-label">Offene Tickets</p></div><span class="stat-trend down">+3 seit gestern</span></div>
+                <div class="stat-card"><div class="stat-icon orange">📭</div><div class="stat-info"><p class="stat-value">2,1%</p><p class="stat-label">Leerstandsquote</p></div><span class="stat-trend up">-0,5% vs. Vormonat</span></div>
+            </div>
+            <div class="section-card">
+                <h2>Ticket-Pipeline</h2>
+                <div class="pipeline">
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot blue"></span><span>Neu eingegangen</span><span class="stage-count">14</span></div><div class="stage-bar"><div class="stage-fill blue" style="width:100%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot yellow"></span><span>AI kategorisiert</span><span class="stage-count">10</span></div><div class="stage-bar"><div class="stage-fill yellow" style="width:71%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot purple"></span><span>Handwerker beauftragt</span><span class="stage-count">6</span></div><div class="stage-bar"><div class="stage-fill purple" style="width:43%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot green"></span><span>In Arbeit</span><span class="stage-count">4</span></div><div class="stage-bar"><div class="stage-fill green" style="width:29%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot emerald"></span><span>Erledigt ✓</span><span class="stage-count">23</span></div><div class="stage-bar"><div class="stage-fill emerald" style="width:100%"></div></div></div>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="section-card">
+                    <h2>⚠️ Handlungsbedarf</h2>
+                    <div class="alert-list">
+                        <div class="alert-item urgent"><span class="alert-badge">Dringend</span><p><strong>Heizungsausfall</strong> — Fichtenweg 12, Whg. 3 — Mieter seit 2 Tagen ohne Heizung</p><button class="btn btn-sm" onclick="showPage('tickets')">Ticket →</button></div>
+                        <div class="alert-item warning"><span class="alert-badge warn">Frist</span><p><strong>Nebenkostenabrechnung 2024</strong> — Frist endet in 18 Tagen (12 Objekte offen)</p><button class="btn btn-sm" onclick="showPage('finance')">Abrechnung →</button></div>
+                        <div class="alert-item info"><span class="alert-badge info">AI</span><p>🤖 AI hat <strong>3 Mietrückstände</strong> erkannt — automatische Mahnung vorbereitet</p><button class="btn btn-sm" onclick="toast('Mahnungen anzeigen')">Prüfen →</button></div>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <h2>📋 Letzte Aktivitäten</h2>
+                    <div class="activity-list">
+                        <div class="activity-item"><span class="activity-time">vor 20min</span><p>🤖 AI hat <strong>Wasserschaden</strong>-Meldung automatisch als <strong>Priorität: Hoch</strong> eingestuft</p></div>
+                        <div class="activity-item"><span class="activity-time">vor 1h</span><p>📧 Automatische Eingangsbestätigung an <strong>Frau Müller</strong> (Schlüsselverlust)</p></div>
+                        <div class="activity-item"><span class="activity-time">vor 3h</span><p>🔧 <strong>Sanitär Krause</strong> hat Reparatur in Birkenstr. 8 abgeschlossen</p></div>
+                        <div class="activity-item"><span class="activity-time">gestern</span><p>💰 <strong>Mieteingang</strong> — 184 von 186 Mieten eingegangen (99,2%)</p></div>
+                        <div class="activity-item"><span class="activity-time">vor 2 Tagen</span><p>📄 AI hat <strong>Nebenkostenabrechnung</strong> für Eichenring 5 erstellt</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- OBJECTS -->
+        <div class="page" id="page-objects">
+            <div class="page-header"><div><h1>🏠 Objekte</h1><p class="page-subtitle">24 Wohnanlagen, 186 Einheiten</p></div><div class="header-actions"><button class="btn btn-primary">+ Neues Objekt</button></div></div>
+            <div class="facility-grid" id="objGrid"></div>
+        </div>
+        <!-- TENANTS -->
+        <div class="page" id="page-tenants">
+            <div class="page-header"><div><h1>👤 Mieter</h1><p class="page-subtitle">182 aktive Mietverhältnisse</p></div><div class="header-actions"><input type="text" class="search-input" placeholder="🔍 Name, Adresse..."><button class="btn btn-primary">+ Neuer Mieter</button></div></div>
+            <div class="filter-bar"><button class="filter-btn active">Alle (182)</button><button class="filter-btn">Aktuell (178)</button><button class="filter-btn">Rückstand (3)</button><button class="filter-btn">Kündigung (2)</button></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Name</th><th>Objekt / Einheit</th><th>Miete</th><th>Status</th><th>Seit</th><th>Aktion</th></tr></thead><tbody id="tenantBody"></tbody></table></div>
+        </div>
+        <!-- TICKETS -->
+        <div class="page" id="page-tickets">
+            <div class="page-header"><div><h1>🔧 Tickets / Schadensmeldungen</h1><p class="page-subtitle">14 offene Tickets</p></div><div class="header-actions"><button class="btn btn-primary">+ Neues Ticket</button></div></div>
+            <div class="filter-bar"><button class="filter-btn active">Alle (14)</button><button class="filter-btn">Dringend (3)</button><button class="filter-btn">Normal (8)</button><button class="filter-btn">Gering (3)</button></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Ticket</th><th>Objekt</th><th>Melder</th><th>Priorität</th><th>Status</th><th>AI-Kategorie</th><th>Aktion</th></tr></thead><tbody id="ticketBody"></tbody></table></div>
+        </div>
+        <!-- FINANCE -->
+        <div class="page" id="page-finance">
+            <div class="page-header"><div><h1>💰 Nebenkostenabrechnung</h1><p class="page-subtitle">Abrechnungszeitraum 2024</p></div><div class="header-actions"><button class="btn btn-primary" onclick="toast('🤖 AI erstellt Abrechnung...')">🤖 AI-Abrechnung erstellen</button></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon green">✅</div><div class="stat-info"><p class="stat-value">12</p><p class="stat-label">Fertig erstellt</p></div></div>
+                <div class="stat-card"><div class="stat-icon yellow">⏳</div><div class="stat-info"><p class="stat-value">8</p><p class="stat-label">In Bearbeitung</p></div></div>
+                <div class="stat-card"><div class="stat-icon red">❌</div><div class="stat-info"><p class="stat-value">4</p><p class="stat-label">Offen (Daten fehlen)</p></div></div>
+                <div class="stat-card"><div class="stat-icon blue">📅</div><div class="stat-info"><p class="stat-value">18 Tage</p><p class="stat-label">Bis Fristende</p></div></div>
+            </div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Objekt</th><th>Einheiten</th><th>Status</th><th>AI-Prüfung</th><th>Nachzahlung Ø</th><th>Aktion</th></tr></thead><tbody id="financeBody"></tbody></table></div>
+        </div>
+        <!-- MESSAGES -->
+        <div class="page" id="page-messages">
+            <div class="page-header"><div><h1>✉️ Kommunikation</h1><p class="page-subtitle">Automatisierte Mieter-Kommunikation</p></div></div>
+            <div class="grid-2">
+                <div class="section-card"><h2>📨 Automatische Nachrichten</h2><div class="template-list">
+                    <div class="template-item"><div class="template-info"><h3>Ticket-Eingangsbestätigung</h3><p>Sofort bei neuer Schadensmeldung</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Handwerker-Termin</h3><p>Mieter informieren bei Terminvergabe</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Mietrückstand-Mahnung</h3><p>AI-generiert, freundlich + rechtssicher</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Nebenkostenabrechnung</h3><p>Versand mit Erläuterungsschreiben</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Rundschreiben</h3><p>Hausordnung, Winterdienst, Termine</p></div><span class="badge green">Aktiv</span></div>
+                </div></div>
+                <div class="section-card"><h2>📝 Schnellnachricht</h2><div class="compose-form"><label>Empfänger</label><select class="select-input"><option>— Auswählen —</option><option>Alle Mieter Fichtenweg 12</option><option>Frau Müller (Whg. 3)</option><option>Herr Özdemir (Whg. 7)</option></select><label>Nachricht</label><textarea class="textarea-input" rows="6" placeholder="Ihre Nachricht..."></textarea><div class="compose-actions"><button class="btn btn-ghost" onclick="toast('🤖 AI-Vorschlag generiert!')">🤖 AI-Vorschlag</button><button class="btn btn-primary" onclick="toast('📧 Gesendet!')">Senden</button></div></div></div>
+            </div>
+        </div>
+        <!-- ANALYTICS -->
+        <div class="page" id="page-analytics">
+            <div class="page-header"><div><h1>📈 Analytics</h1><p class="page-subtitle">Verwaltungs-Kennzahlen</p></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon green">✅</div><div class="stat-info"><p class="stat-value">4,2 Tage</p><p class="stat-label">Ø Ticket-Lösung</p></div><span class="stat-trend up">-1,8 Tage schneller</span></div>
+                <div class="stat-card"><div class="stat-icon blue">📧</div><div class="stat-info"><p class="stat-value">94%</p><p class="stat-label">Auto-Antwortquote</p></div><span class="stat-trend up">Mieteranfragen</span></div>
+                <div class="stat-card"><div class="stat-icon purple">🤖</div><div class="stat-info"><p class="stat-value">18h/Wo</p><p class="stat-label">Zeitersparnis</p></div><span class="stat-trend up">durch AI</span></div>
+                <div class="stat-card"><div class="stat-icon orange">💰</div><div class="stat-info"><p class="stat-value">99,2%</p><p class="stat-label">Mieteingangsquote</p></div><span class="stat-trend up">+0,8% vs. Vorjahr</span></div>
+            </div>
+        </div>
+    </main>
+    <div class="toast" id="toast"></div>
+    <script>
+    function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelector('[data-page="'+p+'"]')?.classList.add('active');document.getElementById('sidebar').classList.remove('open');if(p==='objects')renderObjs();if(p==='tenants')renderTenants();if(p==='tickets')renderTickets();if(p==='finance')renderFinance();window.scrollTo(0,0);}
+    function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
+    function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+    const OBJS=[
+        {name:"Fichtenweg 12",units:12,type:"Mehrfamilienhaus",loc:"Stuttgart-West",occ:"100%",tickets:3},
+        {name:"Birkenstraße 8",units:8,type:"Mehrfamilienhaus",loc:"Stuttgart-Süd",occ:"87,5%",tickets:2},
+        {name:"Eichenring 5",units:18,type:"Wohnanlage",loc:"Stuttgart-Ost",occ:"100%",tickets:1},
+        {name:"Am Stadtpark 22",units:24,type:"Wohnanlage",loc:"Stuttgart-Nord",occ:"95,8%",tickets:4},
+        {name:"Rosenweg 3a-c",units:36,type:"Wohnkomplex",loc:"Esslingen",occ:"97,2%",tickets:2},
+        {name:"Lindenplatz 7",units:6,type:"Altbau",loc:"Stuttgart-Mitte",occ:"100%",tickets:2},
+    ];
+    const TENANTS=[
+        {name:"Frau Müller",obj:"Fichtenweg 12, Whg. 3",rent:"€680",status:'<span class="badge green">Aktuell</span>',since:"01.03.2019"},
+        {name:"Herr Özdemir",obj:"Fichtenweg 12, Whg. 7",rent:"€720",status:'<span class="badge green">Aktuell</span>',since:"15.08.2021"},
+        {name:"Familie Schmidt",obj:"Birkenstraße 8, Whg. 2",rent:"€850",status:'<span class="badge red">Rückstand</span>',since:"01.01.2020"},
+        {name:"Frau Dr. Weber",obj:"Am Stadtpark 22, Whg. 14",rent:"€1.050",status:'<span class="badge green">Aktuell</span>',since:"01.06.2022"},
+        {name:"Herr Petrov",obj:"Rosenweg 3b, Whg. 5",rent:"€620",status:'<span class="badge green">Aktuell</span>',since:"15.03.2023"},
+        {name:"Familie Yilmaz",obj:"Eichenring 5, Whg. 11",rent:"€780",status:'<span class="badge yellow">Kündigung</span>',since:"01.09.2018"},
+        {name:"Herr Bauer",obj:"Lindenplatz 7, Whg. 4",rent:"€590",status:'<span class="badge green">Aktuell</span>',since:"01.12.2021"},
+        {name:"Frau Hoffmann",obj:"Am Stadtpark 22, Whg. 8",rent:"€920",status:'<span class="badge red">Rückstand</span>',since:"01.04.2020"},
+    ];
+    const TICKETS=[
+        {id:"T-2024-089",obj:"Fichtenweg 12, Whg. 3",melder:"Frau Müller",prio:'<span class="badge red">Dringend</span>',status:'<span class="badge yellow">Handwerker gesucht</span>',cat:"Heizung"},
+        {id:"T-2024-088",obj:"Birkenstraße 8, Whg. 1",melder:"Herr Klein",prio:'<span class="badge red">Dringend</span>',status:'<span class="badge blue">Neu</span>',cat:"Wasserschaden"},
+        {id:"T-2024-087",obj:"Am Stadtpark 22, Whg. 20",melder:"Frau Chen",prio:'<span class="badge red">Dringend</span>',status:'<span class="badge purple">In Arbeit</span>',cat:"Aufzug defekt"},
+        {id:"T-2024-086",obj:"Fichtenweg 12, Whg. 9",melder:"Herr Braun",prio:'<span class="badge yellow">Normal</span>',status:'<span class="badge blue">Neu</span>',cat:"Fenster undicht"},
+        {id:"T-2024-085",obj:"Rosenweg 3a, Whg. 2",melder:"Frau Petrova",prio:'<span class="badge yellow">Normal</span>',status:'<span class="badge purple">In Arbeit</span>',cat:"Schimmelbildung"},
+        {id:"T-2024-084",obj:"Eichenring 5, Whg. 7",melder:"Herr Wagner",prio:'<span class="badge yellow">Normal</span>',status:'<span class="badge yellow">Handwerker beauftragt</span>',cat:"Rolladen klemmt"},
+        {id:"T-2024-083",obj:"Lindenplatz 7, EG",melder:"Eigentümer",prio:'<span class="badge green">Gering</span>',status:'<span class="badge blue">Neu</span>',cat:"Treppenhauslicht"},
+    ];
+    const FINANCE=[
+        {obj:"Fichtenweg 12",units:12,status:'<span class="badge green">Fertig</span>',ai:'<span class="badge green">✅ Geprüft</span>',avg:"€182"},
+        {obj:"Eichenring 5",units:18,status:'<span class="badge green">Fertig</span>',ai:'<span class="badge green">✅ Geprüft</span>',avg:"€145"},
+        {obj:"Birkenstraße 8",units:8,status:'<span class="badge yellow">In Bearbeitung</span>',ai:'<span class="badge yellow">⏳ Prüfung</span>',avg:"—"},
+        {obj:"Am Stadtpark 22",units:24,status:'<span class="badge yellow">In Bearbeitung</span>',ai:'<span class="badge yellow">⏳ Warte auf Daten</span>',avg:"—"},
+        {obj:"Rosenweg 3a-c",units:36,status:'<span class="badge red">Offen</span>',ai:'<span class="badge red">❌ Heizkostendaten fehlen</span>',avg:"—"},
+        {obj:"Lindenplatz 7",units:6,status:'<span class="badge green">Fertig</span>',ai:'<span class="badge green">✅ Geprüft</span>',avg:"€98"},
+    ];
+    function renderObjs(){document.getElementById('objGrid').innerHTML=OBJS.map(o=>`<div class="facility-card"><div class="facility-header"><h3>${o.name}</h3><span class="badge ${o.tickets>2?'red':'green'}">${o.tickets} Tickets</span></div><p class="facility-type">${o.type} • ${o.loc}</p><div class="facility-stats"><div><strong>${o.units}</strong><span>Einheiten</span></div><div><strong>${o.occ}</strong><span>Auslastung</span></div><div><strong>${o.tickets}</strong><span>Offen</span></div></div><button class="btn btn-primary btn-full" onclick="showPage('tickets')">🔧 Tickets ansehen</button></div>`).join('');}
+    function renderTenants(){document.getElementById('tenantBody').innerHTML=TENANTS.map(t=>`<tr><td><strong>${t.name}</strong></td><td>${t.obj}</td><td>${t.rent}</td><td>${t.status}</td><td>${t.since}</td><td><button class="btn btn-sm" onclick="toast('Mieterakte geöffnet')">Details</button></td></tr>`).join('');}
+    function renderTickets(){document.getElementById('ticketBody').innerHTML=TICKETS.map(t=>`<tr><td><strong>${t.id}</strong></td><td>${t.obj}</td><td>${t.melder}</td><td>${t.prio}</td><td>${t.status}</td><td><span class="badge blue">🤖 ${t.cat}</span></td><td><button class="btn btn-sm" onclick="toast('Ticket geöffnet')">Bearbeiten</button></td></tr>`).join('');}
+    function renderFinance(){document.getElementById('financeBody').innerHTML=FINANCE.map(f=>`<tr><td><strong>${f.obj}</strong></td><td>${f.units}</td><td>${f.status}</td><td>${f.ai}</td><td>${f.avg}</td><td><button class="btn btn-sm" onclick="toast('🤖 AI erstellt Abrechnung...')">Öffnen</button></td></tr>`).join('');}
+    renderObjs();
+    </script>
+</body>
+</html>

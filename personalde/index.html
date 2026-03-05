@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PersonalAI — Intelligente Personalvermittlung</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../curasmaa/style.css">
+    <style>
+        .logo-ai { color: #0EA5E9; }
+        .nav-item.active { background: rgba(14,165,233,0.15); color: #0EA5E9; }
+        :root { --primary: #0EA5E9; --primary-hover: #0284C7; --primary-light: #E0F2FE; }
+    </style>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo"><span class="logo-icon">🎯</span><span class="logo-text">Personal<span class="logo-ai">AI</span></span></div>
+            <p class="logo-sub">Demo für PersonalDE</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-page="dashboard" onclick="showPage('dashboard')"><span class="nav-icon">📊</span> Dashboard</a>
+            <a href="#" class="nav-item" data-page="candidates" onclick="showPage('candidates')"><span class="nav-icon">👤</span> Kandidaten</a>
+            <a href="#" class="nav-item" data-page="jobs" onclick="showPage('jobs')"><span class="nav-icon">💼</span> Stellenangebote</a>
+            <a href="#" class="nav-item" data-page="matching" onclick="showPage('matching')"><span class="nav-icon">🤖</span> AI-Matching</a>
+            <a href="#" class="nav-item" data-page="pipeline" onclick="showPage('pipeline')"><span class="nav-icon">📋</span> Pipeline</a>
+            <a href="#" class="nav-item" data-page="messages" onclick="showPage('messages')"><span class="nav-icon">✉️</span> Kommunikation</a>
+            <a href="#" class="nav-item" data-page="analytics" onclick="showPage('analytics')"><span class="nav-icon">📈</span> Analytics</a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-badge"><div class="user-avatar" style="background:#0EA5E9">TT</div><div><p class="user-name">Tetiana Tymoshenko</p><p class="user-role">Inhaberin</p></div></div>
+        </div>
+    </aside>
+    <header class="mobile-header"><button class="menu-toggle" onclick="toggleSidebar()">☰</button><span class="logo-text">Personal<span class="logo-ai">AI</span></span></header>
+    <main class="main">
+        <!-- DASHBOARD -->
+        <div class="page active" id="page-dashboard">
+            <div class="page-header"><div><h1>Guten Tag, Tetiana 👋</h1><p class="page-subtitle">Ihr Recruiting-Überblick für heute</p></div><div class="header-actions"><button class="btn btn-primary" onclick="showPage('matching')">🤖 AI-Match starten</button></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon blue">👤</div><div class="stat-info"><p class="stat-value">156</p><p class="stat-label">Aktive Kandidaten</p></div><span class="stat-trend up">+12 diese Woche</span></div>
+                <div class="stat-card"><div class="stat-icon green">💼</div><div class="stat-info"><p class="stat-value">23</p><p class="stat-label">Offene Stellen</p></div><span class="stat-trend up">+4 neu</span></div>
+                <div class="stat-card"><div class="stat-icon purple">🤝</div><div class="stat-info"><p class="stat-value">18</p><p class="stat-label">Laufende Matches</p></div><span class="stat-trend neutral">in Bearbeitung</span></div>
+                <div class="stat-card"><div class="stat-icon orange">✅</div><div class="stat-info"><p class="stat-value">8</p><p class="stat-label">Vermittlungen (Monat)</p></div><span class="stat-trend up">+3 vs. Vormonat</span></div>
+            </div>
+            <div class="section-card">
+                <h2>Recruiting-Pipeline</h2>
+                <div class="pipeline">
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot blue"></span><span>Bewerbung eingegangen</span><span class="stage-count">42</span></div><div class="stage-bar"><div class="stage-fill blue" style="width:100%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot yellow"></span><span>CV-Screening</span><span class="stage-count">28</span></div><div class="stage-bar"><div class="stage-fill yellow" style="width:67%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot purple"></span><span>AI-Matching</span><span class="stage-count">18</span></div><div class="stage-bar"><div class="stage-fill purple" style="width:43%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot green"></span><span>Vorstellungsgespräch</span><span class="stage-count">12</span></div><div class="stage-bar"><div class="stage-fill green" style="width:29%"></div></div></div>
+                    <div class="pipeline-stage"><div class="stage-header"><span class="stage-dot emerald"></span><span>Vermittelt ✓</span><span class="stage-count">8</span></div><div class="stage-bar"><div class="stage-fill emerald" style="width:19%"></div></div></div>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="section-card">
+                    <h2>⚠️ Handlungsbedarf</h2>
+                    <div class="alert-list">
+                        <div class="alert-item urgent"><span class="alert-badge">Dringend</span><p><strong>Siemens Healthineers Erlangen</strong> — wartet seit 3 Tagen auf Kandidatenvorschläge für CNC-Fräser</p><button class="btn btn-sm" onclick="showPage('matching')">Match finden →</button></div>
+                        <div class="alert-item warning"><span class="alert-badge warn">Erinnerung</span><p><strong>Stefan Huber</strong> — Vorstellungsgespräch morgen 10:00 bei Datev eG</p><button class="btn btn-sm">Details →</button></div>
+                        <div class="alert-item info"><span class="alert-badge info">Neu</span><p><strong>14 neue Bewerbungen</strong> über das Wochenende eingegangen — AI hat 6 als "Top-Fit" markiert</p><button class="btn btn-sm" onclick="showPage('candidates')">Ansehen →</button></div>
+                    </div>
+                </div>
+                <div class="section-card">
+                    <h2>📋 Letzte Aktivitäten</h2>
+                    <div class="activity-list">
+                        <div class="activity-item"><span class="activity-time">vor 1h</span><p>🤖 AI hat <strong>5 Top-Matches</strong> für Datev eG Elektronik-Stelle gefunden</p></div>
+                        <div class="activity-item"><span class="activity-time">vor 3h</span><p>📧 Automatische Absage an 8 unpassende Bewerber gesendet</p></div>
+                        <div class="activity-item"><span class="activity-time">gestern</span><p>✅ <strong>Marco Reiter</strong> erfolgreich als Mechatroniker bei Adidas Herzogenaurach vermittelt</p></div>
+                        <div class="activity-item"><span class="activity-time">gestern</span><p>📄 <strong>3 neue Stellenanzeigen</strong> von Schaeffler Nürnberg eingegangen</p></div>
+                        <div class="activity-item"><span class="activity-time">vor 2 Tagen</span><p>🎯 AI-Screening hat Bewerbungszeit um <strong>65%</strong> reduziert</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CANDIDATES -->
+        <div class="page" id="page-candidates">
+            <div class="page-header"><div><h1>Kandidaten</h1><p class="page-subtitle">156 aktive Kandidaten in der Datenbank</p></div><div class="header-actions"><input type="text" class="search-input" placeholder="🔍 Name, Skill, Ort..."><button class="btn btn-primary">+ Neuer Kandidat</button></div></div>
+            <div class="filter-bar">
+                <button class="filter-btn active">Alle (156)</button><button class="filter-btn">Top-Fit (24)</button><button class="filter-btn">Verfügbar (89)</button><button class="filter-btn">In Gespräch (18)</button><button class="filter-btn">Vermittelt (25)</button>
+            </div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Name</th><th>Fachbereich</th><th>Erfahrung</th><th>Standort</th><th>Status</th><th>AI-Score</th><th>Aktionen</th></tr></thead><tbody id="candidateBody"></tbody></table></div>
+        </div>
+        <!-- JOBS -->
+        <div class="page" id="page-jobs">
+            <div class="page-header"><div><h1>Stellenangebote</h1><p class="page-subtitle">23 offene Positionen</p></div><div class="header-actions"><button class="btn btn-primary">+ Neue Stelle</button></div></div>
+            <div class="facility-grid" id="jobGrid"></div>
+        </div>
+        <!-- AI MATCHING -->
+        <div class="page" id="page-matching">
+            <div class="page-header"><div><h1>🤖 AI-Matching</h1><p class="page-subtitle">Intelligente Zuordnung von Kandidaten zu offenen Stellen</p></div></div>
+            <div class="matching-layout">
+                <div class="section-card"><h2>Stelle auswählen</h2><select class="select-input" id="matchJob" onchange="runMatch()"><option value="">— Stelle wählen —</option></select><div id="jobNeeds" style="display:none"></div></div>
+                <div class="section-card"><h2>AI-Ergebnisse</h2><div id="matchResults"><div class="empty-state"><p>🤖</p><p>Wählen Sie eine Stelle, um das AI-Matching zu starten</p></div></div></div>
+            </div>
+        </div>
+        <!-- PIPELINE -->
+        <div class="page" id="page-pipeline">
+            <div class="page-header"><div><h1>📋 Pipeline</h1><p class="page-subtitle">Alle laufenden Vermittlungsprozesse</p></div></div>
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Kandidat</th><th>Stelle</th><th>Unternehmen</th><th>Phase</th><th>Seit</th><th>Aktion</th></tr></thead><tbody id="pipelineBody"></tbody></table></div>
+        </div>
+        <!-- MESSAGES -->
+        <div class="page" id="page-messages">
+            <div class="page-header"><div><h1>✉️ Kommunikation</h1><p class="page-subtitle">Automatisierte Nachrichten & Templates</p></div></div>
+            <div class="grid-2">
+                <div class="section-card"><h2>📨 Automatische E-Mails</h2><div class="template-list">
+                    <div class="template-item"><div class="template-info"><h3>Bewerbungseingang</h3><p>Automatisch bei neuer Bewerbung</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Interview-Einladung</h3><p>Bei AI-Match über 80%</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Absage (freundlich)</h3><p>AI-generiert, personalisiert</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Kandidaten-Vorschlag an Firma</h3><p>Profil + AI-Begründung</p></div><span class="badge green">Aktiv</span></div>
+                    <div class="template-item"><div class="template-info"><h3>Vermittlungs-Bestätigung</h3><p>An Kandidat + Unternehmen</p></div><span class="badge green">Aktiv</span></div>
+                </div></div>
+                <div class="section-card"><h2>📝 AI-Nachricht generieren</h2><div class="compose-form"><label>Empfänger</label><select class="select-input"><option>— Auswählen —</option><option>Stefan Huber</option><option>Siemens Healthineers Erlangen</option><option>Datev eG-Werk</option></select><label>Nachricht</label><textarea class="textarea-input" rows="6" placeholder="Ihre Nachricht..."></textarea><div class="compose-actions"><button class="btn btn-ghost" onclick="toast('🤖 AI-Vorschlag generiert!')">🤖 AI-Vorschlag</button><button class="btn btn-primary" onclick="toast('📧 Nachricht gesendet!')">Senden</button></div></div></div>
+            </div>
+        </div>
+        <!-- ANALYTICS -->
+        <div class="page" id="page-analytics">
+            <div class="page-header"><div><h1>📈 Analytics</h1><p class="page-subtitle">Recruiting-Kennzahlen</p></div></div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-icon green">✅</div><div class="stat-info"><p class="stat-value">92%</p><p class="stat-label">Vermittlungsquote</p></div><span class="stat-trend up">+8% vs. Vormonat</span></div>
+                <div class="stat-card"><div class="stat-icon blue">⏱️</div><div class="stat-info"><p class="stat-value">11 Tage</p><p class="stat-label">Ø Time-to-Hire</p></div><span class="stat-trend up">-4 Tage schneller</span></div>
+                <div class="stat-card"><div class="stat-icon purple">🤖</div><div class="stat-info"><p class="stat-value">87%</p><p class="stat-label">AI-Match Trefferquote</p></div><span class="stat-trend up">+5%</span></div>
+                <div class="stat-card"><div class="stat-icon orange">💰</div><div class="stat-info"><p class="stat-value">15h/Woche</p><p class="stat-label">Zeitersparnis durch AI</p></div><span class="stat-trend up">vs. manuell</span></div>
+            </div>
+        </div>
+    </main>
+    <div class="toast" id="toast"></div>
+    <script>
+    function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.nav-item').forEach(x=>x.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');document.querySelector('[data-page="'+p+'"]').classList.add('active');document.getElementById('sidebar').classList.remove('open');if(p==='candidates')renderCandidates();if(p==='jobs')renderJobs();if(p==='matching')initMatch();if(p==='pipeline')renderPipeline();window.scrollTo(0,0);}
+    function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open');}
+    function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+
+    const CANDIDATES=[
+        {name:"Stefan Huber",field:"Mechatronik",exp:"7 Jahre",loc:"Krumbach",status:"interview",score:94},
+        {name:"Marco Reiter",field:"CNC-Fräsen",exp:"12 Jahre",loc:"Günzburg",status:"placed",score:91},
+        {name:"Lisa Mayer",field:"Elektronik",exp:"5 Jahre",loc:"Augsburg",status:"available",score:88},
+        {name:"Thomas Berger",field:"Schweißtechnik",exp:"15 Jahre",loc:"Mindelheim",status:"available",score:85},
+        {name:"Anna Schmid",field:"Qualitätssicherung",exp:"8 Jahre",loc:"Ulm",status:"topfit",score:92},
+        {name:"Lukas Wagner",field:"SPS-Programmierung",exp:"6 Jahre",loc:"Krumbach",status:"interview",score:86},
+        {name:"Julia Braun",field:"Industriemechanik",exp:"4 Jahre",loc:"Memmingen",status:"available",score:78},
+        {name:"Markus Fischer",field:"Elektrotechnik",exp:"10 Jahre",loc:"Augsburg",status:"topfit",score:90},
+        {name:"Sandra Hofer",field:"Logistik",exp:"9 Jahre",loc:"Günzburg",status:"available",score:75},
+        {name:"Peter Gruber",field:"Maschinenbau",exp:"20 Jahre",loc:"Neu-Ulm",status:"available",score:82},
+    ];
+    const JOBS=[
+        {title:"CNC-Fräser (m/w/d)",company:"Siemens Healthineers Erlangen",loc:"Krumbach",type:"Vollzeit",salary:"€45-55k",positions:2,urgency:"hoch",needs:["CNC-Fräsen","Metalltechnik","5+ Jahre"]},
+        {title:"Mechatroniker (m/w/d)",company:"Datev eG-Werk Ehingen",loc:"Ehingen",type:"Vollzeit",salary:"€42-50k",positions:3,urgency:"hoch",needs:["Mechatronik","SPS","Hydraulik"]},
+        {title:"Elektroniker (m/w/d)",company:"Schaeffler Nürnberg",loc:"Augsburg",type:"Vollzeit",salary:"€48-58k",positions:2,urgency:"mittel",needs:["Elektronik","Robotik","Automatisierung"]},
+        {title:"Qualitätsprüfer (m/w/d)",company:"Adidas Herzogenaurach",loc:"Mindelheim",type:"Vollzeit",salary:"€40-48k",positions:1,urgency:"niedrig",needs:["Qualitätssicherung","Messtechnik","ISO 9001"]},
+        {title:"SPS-Programmierer (m/w/d)",company:"Grenzebach Maschinenbau",loc:"Hamlar",type:"Vollzeit",salary:"€55-65k",positions:1,urgency:"mittel",needs:["SPS","TIA Portal","Automatisierung"]},
+    ];
+    const PIPELINE=[
+        {candidate:"Stefan Huber",job:"Mechatroniker",company:"Datev eG",phase:"Vorstellungsgespräch",since:"vor 2 Tagen"},
+        {candidate:"Anna Schmid",job:"Qualitätsprüfer",company:"Adidas Herzogenaurach",phase:"AI-Match",since:"heute"},
+        {candidate:"Lukas Wagner",job:"SPS-Programmierer",company:"Grenzebach",phase:"Vorstellungsgespräch",since:"vor 3 Tagen"},
+        {candidate:"Lisa Mayer",job:"Elektroniker",company:"Schaeffler Nürnberg",phase:"CV-Screening",since:"heute"},
+        {candidate:"Markus Fischer",job:"Elektroniker",company:"Schaeffler Nürnberg",phase:"AI-Match",since:"gestern"},
+        {candidate:"Thomas Berger",job:"CNC-Fräser",company:"BMW Group",phase:"Vorschlag gesendet",since:"vor 1 Tag"},
+    ];
+
+    function renderCandidates(){
+        const s={'topfit':'<span class="badge purple">⭐ Top-Fit</span>','available':'<span class="badge green">Verfügbar</span>','interview':'<span class="badge yellow">Im Gespräch</span>','placed':'<span class="badge blue">Vermittelt ✓</span>'};
+        document.getElementById('candidateBody').innerHTML=CANDIDATES.map(c=>`<tr><td><strong>${c.name}</strong></td><td>${c.field}</td><td>${c.exp}</td><td>${c.loc}</td><td>${s[c.status]}</td><td><div class="score-ring" style="--score:${c.score};width:40px;height:40px"><span style="font-size:0.65rem">${c.score}%</span></div></td><td><button class="btn btn-sm" onclick="toast('Profil ${c.name} geöffnet')">Details</button></td></tr>`).join('');
+    }
+    function renderJobs(){
+        document.getElementById('jobGrid').innerHTML=JOBS.map(j=>`<div class="facility-card"><div class="facility-header"><h3>${j.title}</h3><span class="badge ${j.urgency==='hoch'?'red':j.urgency==='mittel'?'yellow':'blue'}">${j.urgency}</span></div><p class="facility-type">${j.company} • ${j.loc}</p><div class="facility-stats"><div><strong>${j.positions}</strong><span>Offene Stellen</span></div><div><strong>${j.salary}</strong><span>Gehalt</span></div></div><div class="facility-needs"><p><strong>Anforderungen:</strong></p>${j.needs.map(n=>`<span class="need-tag">${n}</span>`).join('')}</div><button class="btn btn-primary btn-full" onclick="showPage('matching')">🤖 Kandidaten matchen</button></div>`).join('');
+    }
+    function initMatch(){
+        document.getElementById('matchJob').innerHTML='<option value="">— Stelle wählen —</option>'+JOBS.map((j,i)=>`<option value="${i}">${j.title} — ${j.company}</option>`).join('');
+    }
+    function runMatch(){
+        const i=document.getElementById('matchJob').value;if(i==='')return;const job=JOBS[i];
+        const nd=document.getElementById('jobNeeds');nd.style.display='block';
+        nd.innerHTML=`<p><strong>${job.company}</strong></p>${job.needs.map(n=>`<span class="need-tag">${n}</span>`).join('')}<p class="mt-1">${job.positions} Stellen • ${job.salary}</p>`;
+        const r=document.getElementById('matchResults');r.innerHTML='<div class="ai-loading"><div class="spinner"></div><p>🤖 AI analysiert 156 Kandidaten...</p></div>';
+        setTimeout(()=>{
+            const matches=CANDIDATES.filter(c=>c.status!=='placed').sort((a,b)=>b.score-a.score).slice(0,4);
+            r.innerHTML=matches.map((m,idx)=>`<div class="match-card ${idx===0?'top-match':''}">${idx===0?'<div class="top-match-label">⭐ Beste Übereinstimmung</div>':''}<div class="match-header"><div class="match-person"><div><strong>${m.name}</strong><span>${m.field}</span></div></div><div class="match-score"><div class="score-ring" style="--score:${m.score}"><span>${m.score}%</span></div></div></div><div class="match-details"><span>🔧 ${m.field}</span><span>📅 ${m.exp}</span><span>📍 ${m.loc}</span></div><div class="match-reason"><p class="ai-label">🤖 AI-Begründung:</p><p>${m.field} passt zur Anforderung. ${m.exp} Berufserfahrung. Standort ${m.loc} — kurzer Arbeitsweg.</p></div><div class="match-actions"><button class="btn btn-primary btn-sm" onclick="toast('📧 Vorschlag an ${job.company} gesendet!')">Firma vorschlagen</button><button class="btn btn-ghost btn-sm">Profil ansehen</button></div></div>`).join('');
+        },1800);
+    }
+    function renderPipeline(){
+        const ph={'CV-Screening':'<span class="badge blue">CV-Screening</span>','AI-Match':'<span class="badge purple">AI-Match</span>','Vorstellungsgespräch':'<span class="badge yellow">Vorstellungsgespräch</span>','Vorschlag gesendet':'<span class="badge orange">Vorschlag gesendet</span>'};
+        document.getElementById('pipelineBody').innerHTML=PIPELINE.map(p=>`<tr><td><strong>${p.candidate}</strong></td><td>${p.job}</td><td>${p.company}</td><td>${ph[p.phase]||p.phase}</td><td>${p.since}</td><td><button class="btn btn-sm" onclick="toast('Details geöffnet')">Details</button></td></tr>`).join('');
+    }
+    renderCandidates();
+    </script>
+</body>
+</html>
